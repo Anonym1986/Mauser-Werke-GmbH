@@ -63,4 +63,131 @@
       width: 200px;
       height: auto;
       border-radius: 10px;
-      box-shadow: 0 4p
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+      cursor: zoom-in;
+    }
+
+    .unterlagen img:hover {
+      transform: scale(1.05);
+    }
+
+    .slideshow {
+      text-align: center;
+    }
+
+    .slideshow img {
+      width: 300px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 10px;
+      cursor: zoom-in;
+    }
+
+    .slideshow button {
+      margin: 0 10px;
+      padding: 10px 20px;
+      background-color: #1F3A93;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+    }
+
+    footer {
+      background-color: #1F3A93;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      .intro-wrapper {
+        flex-direction: column;
+      }
+
+      .unterlagen img,
+      .slideshow img {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Bewerbung zum Fachinformatiker für Anwendungsentwicklung</h1>
+</header>
+
+<div class="intro-wrapper">
+  <img src="AnhängeMauserWerkeGmbH/bewerbungsfoto.jpg" alt="Bewerbungsfoto">
+  <div class="intro-text">
+    <p>Hallo, ich bin Christian. Diese Website habe ich selbst programmiert, als Ausdruck meiner Motivation, Eigeninitiative und Begeisterung für IT.</p>
+    <p>Ich möchte meine Kenntnisse in einer Ausbildung zum Fachinformatiker für Anwendungsentwicklung vertiefen und mit Ihnen gemeinsam in die Zukunft starten.</p>
+  </div>
+</div>
+
+<section>
+  <h2>Lebenslauf & Anschreiben</h2>
+  <div class="unterlagen">
+    <img src="AnhängeMauserWerkeGmbH/lebenslauf1.jpg" alt="Lebenslauf Seite 1" onclick="showLightbox(this.src)">
+    <img src="AnhängeMauserWerkeGmbH/lebenslauf2.jpg" alt="Lebenslauf Seite 2" onclick="showLightbox(this.src)">
+    <img src="AnhängeMauserWerkeGmbH/anschreiben.jpg" alt="Anschreiben" onclick="showLightbox(this.src)">
+  </div>
+</section>
+
+<section>
+  <h2>Zeugnisse</h2>
+  <div class="slideshow">
+    <img id="zeugnisBild" src="AnhängeMauserWerkeGmbH/zeugnis1.jpg" alt="Zeugnis" onclick="showLightbox(this.src)">
+    <br>
+    <button onclick="vorherigesBild()">⬅ Zurück</button>
+    <button onclick="naechstesBild()">Weiter ➡</button>
+  </div>
+</section>
+
+<section>
+  <h2>Download</h2>
+  <p style="text-align: center;">
+    <a href="bewerbungsmappe.pdf" download
+       style="background-color: #1F3A93; color: white; padding: 0.7rem 1.5rem; text-decoration: none; border-radius: 5px;">
+      Alle Unterlagen als PDF herunterladen
+    </a>
+  </p>
+</section>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img" src="" alt="Zoom Ansicht">
+</div>
+
+<footer>
+  <p>Kontakt: christianherber1996@gmail.com<br>Made by Christian Herber</p>
+</footer>
+
+<script>
+  const bilder = [
+    "AnhängeMauserWerkeGmbH/zeugnis1.jpg",
+    "AnhängeMauserWerkeGmbH/zeugnis2.jpg",
+    "AnhängeMauserWerkeGmbH/zeugnis3.jpg",
+    "AnhängeMauserWerkeGmbH/zeugnis4.jpg",
+    "AnhängeMauserWerkeGmbH/zeu
